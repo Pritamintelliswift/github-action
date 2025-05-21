@@ -21,7 +21,7 @@ on:
         required: true
       GIT_URL:
         description: 'Git Repository URL'
-        default: 'http://git.intelliswift.com/DevOps_Internal/DevopsInternal_Project.git'
+        default: 'https://github.com/ABHISHEK-KUMAR-14022001/node-todo-cicd.git'
         required: true
 
 jobs:
