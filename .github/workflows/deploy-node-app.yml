@@ -19,9 +19,13 @@ on:
         description: 'Git Branch to checkout'
         default: 'idp_infra'
         required: true
-      GIT_URL:
-        description: 'Git Repository URL'
-        default: 'https://github.com/ABHISHEK-KUMAR-14022001/node-todo-cicd.git'
+      REPO_OWNER:
+        description: 'GitHub Repo Owner'
+        default: 'ABHISHEK-KUMAR-14022001'
+        required: true
+      REPO_NAME:
+        description: 'GitHub Repo Name'
+        default: 'node-todo-cicd'
         required: true
 
 jobs:
@@ -32,9 +36,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        repository: ${{ github.event.inputs.GIT_URL }}
+        repository: ${{ github.event.inputs.REPO_OWNER }}/${{ github.event.inputs.REPO_NAME }}
         ref: ${{ github.event.inputs.GIT_BRANCH }}
-        token: ${{ secrets.GITLAB_TOKEN }} # Add this secret
+        token: ${{ secrets.GH_PAT }} # Make sure this secret exists
 
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v2
